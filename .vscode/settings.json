@@ -1,0 +1,9 @@
+{
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "C:/Program Files/Zulu/zulu-17",
+            "default": true
+        }
+    ]
+}
