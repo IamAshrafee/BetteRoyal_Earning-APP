@@ -19,6 +19,7 @@ export const LoginScreen = () => {
 
     const handleLogin = () => {
         console.log('Login pressed', { username, password });
+        navigation.navigate('Main' as never);
     };
 
     const handleSocialLogin = (provider: string) => {
