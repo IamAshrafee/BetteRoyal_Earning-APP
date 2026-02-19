@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useColorScheme } from 'react-native';
-import { colors } from './colors';
+import { colors, spacing, radius, shadows } from './colors';
 import { typography } from './typography';
 
 type ThemeType = 'light' | 'dark';
@@ -8,6 +8,9 @@ type ThemeType = 'light' | 'dark';
 interface ThemeContextType {
     theme: ThemeType;
     colors: typeof colors.light;
+    spacing: typeof spacing;
+    radius: typeof radius;
+    shadows: typeof shadows.light;
     typography: typeof typography;
     toggleTheme: () => void;
     setTheme: (theme: ThemeType) => void;
@@ -32,6 +35,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const value = {
         theme,
         colors: colors[theme],
+        spacing,
+        radius,
+        shadows: shadows[theme],
         typography,
         toggleTheme,
         setTheme,

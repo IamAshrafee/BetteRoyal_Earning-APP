@@ -42,6 +42,7 @@ export const AppInput: React.FC<AppInputProps> = ({
                         backgroundColor: colors.input,
                         borderColor: error ? colors.error : isFocused ? colors.primary : 'transparent',
                         borderWidth: 1,
+                        borderRadius: 12,
                     },
                 ]}
             >

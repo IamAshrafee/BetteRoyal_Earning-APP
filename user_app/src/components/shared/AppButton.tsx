@@ -66,13 +66,21 @@ export const AppButton: React.FC<AppButtonProps> = ({
         backgroundColor: getBackgroundColor(),
         borderColor: getBorderColor(),
         borderWidth: variant === 'outline' || variant === 'social' ? 1 : 0,
-        borderRadius: 12,
+        borderRadius: 12, // Standard radius
         paddingVertical: 14,
         paddingHorizontal: 16,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         opacity: disabled ? 0.7 : 1,
+        // Shadow for primary buttons
+        ...(variant === 'primary' && !disabled ? {
+            shadowColor: colors.primary,
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.3,
+            shadowRadius: 12, // Increased shadow radius
+            elevation: 8,
+        } : {}),
         ...style,
     };
 
