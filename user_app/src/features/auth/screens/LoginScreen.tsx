@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView, StatusBar, TouchableOpacity, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 import { useTheme } from '../../../theme/ThemeContext';
 import { AppBox } from '../../../components/shared/AppBox';
 import { AppText } from '../../../components/shared/AppText';
@@ -10,6 +11,7 @@ import { AppInput } from '../../../components/shared/AppInput';
 
 export const LoginScreen = () => {
     const { colors, theme, toggleTheme } = useTheme();
+    const navigation = useNavigation();
     const insets = useSafeAreaInsets();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -30,20 +32,12 @@ export const LoginScreen = () => {
                 backgroundColor={colors.background}
             />
 
-            {/* Header / Status Bar simulation area */}
-            <View style={[styles.header, { marginTop: insets.top }]}>
-                <AppText variant="sm" fontWeight="semiBold">9:41</AppText>
-                <View style={styles.statusIcons}>
-                    <Icon name="signal-cellular-alt" size={16} color={colors.text} />
-                    <Icon name="wifi" size={16} color={colors.text} style={styles.iconSpacing} />
-                    <Icon name="battery-full" size={16} color={colors.text} style={styles.iconSpacing} />
-                </View>
-            </View>
+
 
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 {/* Toggle Theme Button (Absolute) */}
                 <TouchableOpacity
-                    style={[styles.themeToggle, { backgroundColor: theme === 'dark' ? colors.surface : colors.input }]}
+                    style={[styles.themeToggle, { backgroundColor: theme === 'dark' ? colors.surface : colors.input, top: insets.top + 20 }]}
                     onPress={toggleTheme}
                 >
                     <Icon
@@ -145,7 +139,7 @@ export const LoginScreen = () => {
 
                 <View style={styles.footer}>
                     <AppText color={colors.textMuted}>Don't have an account? </AppText>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => (navigation as any).navigate('Register')}>
                         <AppText color={colors.primary} fontWeight="semiBold">Register Now</AppText>
                     </TouchableOpacity>
                 </View>

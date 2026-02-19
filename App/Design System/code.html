@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>App Design System Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF3B30",
+              secondary: "#1A1A1A",
+              "background-light": "#F8F8F8",
+              "background-dark": "#121212",
+              "surface-light": "#FFFFFF",
+              "surface-dark": "#1E1E1E",
+              "text-primary-light": "#1A1A1A",
+              "text-primary-dark": "#FFFFFF",
+              "text-secondary-light": "#8E8E93",
+              "text-secondary-dark": "#A1A1AA",
+              "border-light": "#E5E5EA",
+              "border-dark": "#2C2C2E",
+              "accent-green": "#34C759",
+              "accent-orange": "#FF9500",
+              "esports-orange": "#FF4D00",
+              "esports-teal": "#00C7BE",
+            },
+            fontFamily: {
+              display: ['"Plus Jakarta Sans"', 'sans-serif'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            borderRadius: {
+              DEFAULT: "12px",
+              'xl': "16px",
+              '2xl': "24px",
+            },
+            boxShadow: {
+              'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+              'card': '0 2px 8px rgba(0, 0, 0, 0.04)',
+            }
+          },
+        },
+      };
+    </script>
+<style>.hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-text-primary-light dark:text-text-primary-dark transition-colors duration-300 min-h-screen">
+<div class="max-w-md mx-auto min-h-screen bg-background-light dark:bg-background-dark pb-10">
+<header class="pt-12 pb-6 px-6 bg-surface-light dark:bg-surface-dark shadow-sm mb-6 rounded-b-3xl">
+<div class="flex items-center justify-between mb-2">
+<h1 class="text-3xl font-extrabold tracking-tight">Design System</h1>
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold shadow-lg shadow-primary/30">
+                    DS
+                </div>
+</div>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-medium">
+                Version 2.0 • E-Sports Betting UI Kit
+            </p>
+</header>
+<div class="px-6 space-y-10">
+<section>
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons-round text-primary">palette</span>
+<h2 class="text-xl font-bold">Color Palette</h2>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-light dark:bg-surface-dark p-3 rounded-2xl shadow-card border border-border-light dark:border-border-dark">
+<div class="h-20 rounded-xl bg-primary mb-3 shadow-md shadow-primary/20"></div>
+<div class="flex justify-between items-center">
+<div>
+<p class="font-bold text-sm">Primary</p>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark uppercase">#FF3B30</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-3 rounded-2xl shadow-card border border-border-light dark:border-border-dark">
+<div class="h-20 rounded-xl bg-secondary mb-3"></div>
+<div class="flex justify-between items-center">
+<div>
+<p class="font-bold text-sm">Dark</p>
+<p class="text-xs text-text-secondary-light dark:text-text-secondary-dark uppercase">#1A1A1A</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3 mt-3">
+<div class="bg-surface-light dark:bg-surface-dark p-2 rounded-xl shadow-card border border-border-light dark:border-border-dark text-center">
+<div class="h-10 w-full rounded-lg bg-esports-orange mb-2"></div>
+<p class="text-[10px] font-medium">Orange</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 rounded-xl shadow-card border border-border-light dark:border-border-dark text-center">
+<div class="h-10 w-full rounded-lg bg-esports-teal mb-2"></div>
+<p class="text-[10px] font-medium">Teal</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-2 rounded-xl shadow-card border border-border-light dark:border-border-dark text-center">
+<div class="h-10 w-full rounded-lg bg-background-light border border-border-light mb-2"></div>
+<p class="text-[10px] font-medium">Surface</p>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons-round text-primary">text_fields</span>
+<h2 class="text-xl font-bold">Typography</h2>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-2xl shadow-card border border-border-light dark:border-border-dark space-y-4">
+<div class="border-b border-border-light dark:border-border-dark pb-3">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-xs mb-1">Display H1 • 32px</p>
+<h1 class="text-3xl font-extrabold">E-Sports World</h1>
+</div>
+<div class="border-b border-border-light dark:border-border-dark pb-3">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-xs mb-1">Heading H2 • 24px</p>
+<h2 class="text-2xl font-bold">Upcoming Matches</h2>
+</div>
+<div class="border-b border-border-light dark:border-border-dark pb-3">
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-xs mb-1">Heading H3 • 18px</p>
+<h3 class="text-lg font-bold">Team Fnatic</h3>
+</div>
+<div>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-xs mb-1">Body • 14px</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">
+                            Earn rewards by participating in Free Fire tournaments. Join the league and place your bets wisely.
+                        </p>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons-round text-primary">smart_button</span>
+<h2 class="text-xl font-bold">Buttons &amp; Controls</h2>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-2xl shadow-card border border-border-light dark:border-border-dark space-y-6">
+<div class="space-y-3">
+<p class="text-xs font-semibold text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider">Primary Actions</p>
+<button class="w-full bg-primary hover:bg-red-600 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-primary/30 transition-all active:scale-95 flex items-center justify-center">
+                            Place Bet Now
+                        </button>
+<div class="flex gap-3">
+<button class="flex-1 bg-secondary dark:bg-white dark:text-black text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all active:scale-95 text-sm">
+                                View Odds
+                            </button>
+<button class="flex-1 bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark text-text-primary-light dark:text-text-primary-dark font-bold py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 text-sm">
+                                Cancel
+                            </button>
+</div>
+</div>
+<div class="space-y-3">
+<p class="text-xs font-semibold text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider">Tab Filters</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md shadow-primary/20">All Games</span>
+<span class="bg-background-light dark:bg-background-dark text-text-secondary-light dark:text-text-secondary-dark text-xs font-bold px-4 py-1.5 rounded-full border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-esports-teal"></span>
+                                Valorant
+                            </span>
+<span class="bg-background-light dark:bg-background-dark text-text-secondary-light dark:text-text-secondary-dark text-xs font-bold px-4 py-1.5 rounded-full border border-transparent hover:border-border-light dark:hover:border-border-dark transition-colors">
+                                League of Legends
+                            </span>
+</div>
+</div>
+<div class="space-y-3">
+<p class="text-xs font-semibold text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider">Segmented Control</p>
+<div class="bg-background-light dark:bg-background-dark p-1 rounded-xl flex relative">
+<div class="w-1/2 bg-surface-light dark:bg-surface-dark shadow-sm rounded-lg py-2 text-center text-xs font-bold text-primary cursor-pointer">
+                                 E-SPORTS
+                             </div>
+<div class="w-1/2 py-2 text-center text-xs font-bold text-text-secondary-light dark:text-text-secondary-dark cursor-pointer">
+                                 SPORTS
+                             </div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons-round text-primary">widgets</span>
+<h2 class="text-xl font-bold">UI Components</h2>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-soft p-4 border border-border-light dark:border-border-dark relative overflow-hidden">
+<div class="absolute top-0 right-0 p-3">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-md flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                Live
+                            </span>
+</div>
+<div class="flex items-center justify-between mt-2 mb-6">
+<div class="flex flex-col items-center w-1/3">
+<div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-2 overflow-hidden shadow-sm">
+<span class="material-icons-round text-esports-orange text-2xl">local_fire_department</span>
+</div>
+<span class="text-xs font-bold text-center">Fnatic</span>
+</div>
+<div class="flex flex-col items-center w-1/3 z-10">
+<span class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark mb-1">Map 5 - Icebox</span>
+<div class="bg-gradient-to-r from-esports-orange to-esports-teal text-white px-4 py-1 rounded-lg text-sm font-bold shadow-lg shadow-orange-500/20">
+                                    3 - 1
+                                </div>
+<span class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark mt-1">19:32</span>
+</div>
+<div class="flex flex-col items-center w-1/3">
+<div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-2 overflow-hidden shadow-sm">
+<span class="material-icons-round text-esports-teal text-2xl">shield</span>
+</div>
+<span class="text-xs font-bold text-center">Immortals</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-background-light dark:bg-background-dark hover:bg-gray-100 dark:hover:bg-gray-800 py-2 rounded-lg border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all text-center group">
+<span class="block text-xs text-text-secondary-light dark:text-text-secondary-dark group-hover:text-primary">Win</span>
+<span class="block text-sm font-bold mt-0.5">1.43</span>
+</button>
+<button class="flex-1 bg-background-light dark:bg-background-dark hover:bg-gray-100 dark:hover:bg-gray-800 py-2 rounded-lg border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all text-center group">
+<span class="block text-xs text-text-secondary-light dark:text-text-secondary-dark group-hover:text-primary">Win</span>
+<span class="block text-sm font-bold mt-0.5">1.13</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-4 bg-surface-light dark:bg-surface-dark rounded-2xl shadow-card p-0 border border-border-light dark:border-border-dark overflow-hidden">
+<div class="p-4 border-b border-border-light dark:border-border-dark flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+<span class="material-icons-round text-sm text-gray-600 dark:text-gray-400">sports_esports</span>
+</div>
+<div>
+<h4 class="text-sm font-bold">Minnesota Mutineers</h4>
+<p class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark">vs Paris Legion</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-sm font-bold text-primary">Live</span>
+<p class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark">Map 2</p>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+<span class="material-icons-round text-sm text-gray-600 dark:text-gray-400">sports_score</span>
+</div>
+<div>
+<h4 class="text-sm font-bold">Paris Legion</h4>
+<p class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark">vs FaZe Clan</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-sm font-bold text-text-secondary-light dark:text-text-secondary-dark">14:00</span>
+</div>
+</div>
+</div>
+<div class="mt-4 bg-surface-light dark:bg-surface-dark p-5 rounded-2xl shadow-card border border-border-light dark:border-border-dark space-y-4">
+<div>
+<label class="block text-xs font-bold text-text-secondary-light dark:text-text-secondary-dark mb-2 uppercase">Amount Input</label>
+<div class="relative">
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-xl py-3 px-4 pl-10 text-sm font-bold focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all dark:text-white" type="text" value="20.00"/>
+<span class="absolute left-4 top-3 text-text-secondary-light dark:text-text-secondary-dark font-bold">$</span>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons-round text-primary">grain</span>
+<h2 class="text-xl font-bold">Iconography</h2>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-2xl shadow-card border border-border-light dark:border-border-dark">
+<div class="grid grid-cols-5 gap-4">
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-background-light dark:bg-background-dark flex items-center justify-center text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors cursor-pointer">
+<span class="material-icons-round text-xl">home</span>
+</div>
+<span class="text-[10px] font-medium text-text-secondary-light dark:text-text-secondary-dark">Home</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-background-light dark:bg-background-dark flex items-center justify-center text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors cursor-pointer">
+<span class="material-icons-round text-xl">sports_esports</span>
+</div>
+<span class="text-[10px] font-medium text-text-secondary-light dark:text-text-secondary-dark">Games</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-background-light dark:bg-background-dark flex items-center justify-center text-primary relative cursor-pointer">
+<span class="material-icons-round text-xl">receipt_long</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full ring-2 ring-white dark:ring-surface-dark"></span>
+</div>
+<span class="text-[10px] font-medium text-primary font-bold">Bets</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-background-light dark:bg-background-dark flex items-center justify-center text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors cursor-pointer">
+<span class="material-icons-round text-xl">account_balance_wallet</span>
+</div>
+<span class="text-[10px] font-medium text-text-secondary-light dark:text-text-secondary-dark">Wallet</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-background-light dark:bg-background-dark flex items-center justify-center text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors cursor-pointer">
+<span class="material-icons-round text-xl">person</span>
+</div>
+<span class="text-[10px] font-medium text-text-secondary-light dark:text-text-secondary-dark">Profile</span>
+</div>
+</div>
+</div>
+</section>
+<section class="pb-10">
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-icons-round text-primary">view_column</span>
+<h2 class="text-xl font-bold">Navigation Bar</h2>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark px-6 py-4 rounded-3xl shadow-soft border border-border-light dark:border-border-dark flex justify-between items-center relative">
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-icons-round text-primary text-2xl group-hover:scale-110 transition-transform">home</span>
+<span class="text-[10px] font-bold text-primary">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-icons-round text-text-secondary-light dark:text-text-secondary-dark text-2xl group-hover:text-primary transition-colors">gamepad</span>
+<span class="text-[10px] font-medium text-text-secondary-light dark:text-text-secondary-dark group-hover:text-primary">Games</span>
+</button>
+<button class="flex flex-col items-center gap-1 group relative">
+<span class="material-icons-round text-text-secondary-light dark:text-text-secondary-dark text-2xl group-hover:text-primary transition-colors">receipt</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
+<span class="text-[10px] font-medium text-text-secondary-light dark:text-text-secondary-dark group-hover:text-primary">Bets</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-icons-round text-text-secondary-light dark:text-text-secondary-dark text-2xl group-hover:text-primary transition-colors">stars</span>
+<span class="text-[10px] font-medium text-text-secondary-light dark:text-text-secondary-dark group-hover:text-primary">Leagues</span>
+</button>
+</div>
+</section>
+</div>
+</div>
+
+</body></html>
