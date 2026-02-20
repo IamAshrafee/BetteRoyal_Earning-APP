@@ -8,6 +8,7 @@ interface UserBalanceHeaderProps {
     currencySymbol?: string; // e.g., "৳" or "BTC"
     profileImage: string;
     label?: string; // e.g. "Balance"
+    variant?: 'default' | 'glass'; // Style variant
     onProfilePress?: () => void;
     onBalancePress?: () => void;
 }
@@ -17,27 +18,38 @@ export const UserBalanceHeader = ({
     currencySymbol = 'BTC',
     profileImage,
     label = 'Balance',
+    variant = 'default',
     onProfilePress,
     onBalancePress,
 }: UserBalanceHeaderProps) => {
     const { colors, spacing, radius } = useTheme();
+    const isGlass = variant === 'glass';
 
     const styles = StyleSheet.create({
         container: {
             flexDirection: 'row',
             alignItems: 'center',
             gap: spacing.sm, // gap-3 (~12px)
+            ...(isGlass && {
+                backgroundColor: 'rgba(255, 255, 255, 0.2)', // Pseudo backdrop blur
+                paddingVertical: 6,
+                paddingLeft: 12, // Enough for text
+                paddingRight: 6, // Snug around the avatar
+                borderRadius: 999,
+                borderWidth: 1,
+                borderColor: 'rgba(255, 255, 255, 0.1)',
+            }),
         },
         balanceColumn: {
             alignItems: 'flex-end',
         },
         profileContainer: {
-            width: 40, // h-10 w-10
+            width: 40, // Match default
             height: 40,
             borderRadius: radius.full,
             overflow: 'hidden',
-            borderWidth: 2, // ring-2
-            borderColor: colors.surface, // ring-gray-100 / dark:ring-gray-800
+            borderWidth: 2, // Match default
+            borderColor: isGlass ? 'rgba(255, 255, 255, 0.5)' : colors.surface,
             backgroundColor: colors.surface,
         },
         avatar: {
@@ -57,7 +69,7 @@ export const UserBalanceHeader = ({
                     style={{
                         fontSize: 10,
                         lineHeight: 14,
-                        color: colors.textMuted,
+                        color: isGlass ? 'rgba(255, 255, 255, 0.8)' : colors.textMuted,
                         textTransform: 'uppercase',
                         letterSpacing: 0.8, // tracking-wider
                         fontWeight: '500', // font-medium
@@ -68,7 +80,7 @@ export const UserBalanceHeader = ({
                 <AppText
                     variant="sm" // text-sm
                     fontWeight="bold"
-                    color={colors.primary}
+                    color={isGlass ? '#FFFFFF' : colors.primary}
                 >
                     {currencySymbol} {balance}
                 </AppText>

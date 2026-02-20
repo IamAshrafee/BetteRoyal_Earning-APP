@@ -17,6 +17,7 @@ export interface MatchCardProps {
     slotsFilled: number;
     totalSlots: number;
     onJoinPress?: () => void;
+    onPress?: () => void;
 }
 
 export const MatchCard = ({
@@ -30,7 +31,8 @@ export const MatchCard = ({
     map,
     slotsFilled,
     totalSlots,
-    onJoinPress
+    onJoinPress,
+    onPress
 }: MatchCardProps) => {
     const { colors, spacing, radius, shadows } = useTheme();
 
@@ -157,7 +159,11 @@ export const MatchCard = ({
     });
 
     return (
-        <View style={styles.container}>
+        <TouchableOpacity
+            style={styles.container}
+            onPress={onPress}
+            activeOpacity={onPress ? 0.7 : 1}
+        >
             <View style={styles.header}>
                 <View style={styles.topRow}>
                     <View>
@@ -214,6 +220,6 @@ export const MatchCard = ({
                     </AppText>
                 </TouchableOpacity>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };

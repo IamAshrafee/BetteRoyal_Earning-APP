@@ -136,7 +136,12 @@ export const MatchListScreen = () => {
             <FlatList
                 data={filteredMatches}
                 keyExtractor={(item) => item.title}
-                renderItem={({ item }) => <MatchCard {...item} />}
+                renderItem={({ item }) => (
+                    <MatchCard
+                        {...item}
+                        onPress={() => (navigation as any).navigate('MatchDetail', { matchId: item.title })}
+                    />
+                )}
                 contentContainerStyle={styles.listContent}
                 showsVerticalScrollIndicator={false}
             />

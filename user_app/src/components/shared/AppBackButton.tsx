@@ -8,11 +8,14 @@ import { AppText } from './AppText';
 interface AppBackButtonProps {
     onPress?: () => void;
     style?: StyleProp<ViewStyle>;
+    variant?: 'default' | 'glass';
 }
 
-export const AppBackButton: React.FC<AppBackButtonProps> = ({ onPress, style }) => {
+export const AppBackButton: React.FC<AppBackButtonProps> = ({ onPress, style, variant = 'default' }) => {
     const { colors } = useTheme();
     const navigation = useNavigation();
+
+    const isGlass = variant === 'glass';
 
     const handlePress = () => {
         if (onPress) {
@@ -24,15 +27,24 @@ export const AppBackButton: React.FC<AppBackButtonProps> = ({ onPress, style }) 
 
     return (
         <TouchableOpacity
-            style={[styles.backButton, { backgroundColor: colors.surface }, style]}
+            style={[
+                styles.backButton,
+                isGlass ? styles.glassButton : { backgroundColor: colors.surface },
+                style
+            ]}
             onPress={handlePress}
             activeOpacity={0.7}
         >
-            <MaterialIcons name="arrow-back-ios-new" size={14} color={colors.text} />
+            <MaterialIcons
+                name="arrow-back-ios-new"
+                size={14}
+                color={isGlass ? '#FFFFFF' : colors.text}
+            />
             <AppText
                 variant="xs"
                 fontWeight="bold"
                 style={{ marginLeft: 4, textTransform: 'uppercase' }}
+                color={isGlass ? '#FFFFFF' : colors.text}
             >
                 BACK
             </AppText>
@@ -45,7 +57,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingVertical: 8,
-        paddingHorizontal: 12,
+        paddingHorizontal: 16, // using 16 horizontal to match MatchDetail header padding
         borderRadius: 999,
+        borderWidth: 1,
+        borderColor: 'transparent', // default transparent, overridden by glass
     },
+    glassButton: {
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        borderColor: 'rgba(255, 255, 255, 0.1)',
+    }
 });
