@@ -1,85 +1,55 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator, BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5'; // Using FA5 for game icons
 import { HomeScreen } from '../home/screens/HomeScreen';
-import { useTheme } from '../../theme/ThemeContext';
+import { MatchListScreen } from '../matches/screens/MatchListScreen';
+import { AppBottomNavigation, TabType } from '../../components/shared/AppBottomNavigation';
 
 const Tab = createBottomTabNavigator();
 
-// Placeholder screens
-const GamesScreen = () => <View />;
-const BetsScreen = () => <View />;
-const LeaguesScreen = () => <View />;
+// Placeholder screens for implementation
+const WalletScreen = () => <View style={{ flex: 1, backgroundColor: '#e0e0e0' }} />;
+const ProfileScreen = () => <View style={{ flex: 1, backgroundColor: '#d0d0d0' }} />;
 
 export const BottomTabNavigator = () => {
-    const { colors, shadows } = useTheme();
+
+    const renderCustomTabBar = (props: BottomTabBarProps) => {
+        const { state, navigation } = props;
+        const routeName = state.routeNames[state.index];
+
+        let activeTab: TabType = 'home';
+        if (routeName === 'Matches') activeTab = 'matches';
+        if (routeName === 'Wallet') activeTab = 'wallet';
+        if (routeName === 'Profile') activeTab = 'profile';
+
+        return (
+            <AppBottomNavigation
+                activeTab={activeTab}
+                onTabPress={(tabId) => {
+                    let targetRoute = 'Home';
+                    if (tabId === 'matches') targetRoute = 'Matches';
+                    if (tabId === 'wallet') targetRoute = 'Wallet';
+                    if (tabId === 'profile') targetRoute = 'Profile';
+
+                    navigation.navigate(targetRoute);
+                }}
+            // Optionally pass profile image URI here
+            // profileImageUri="https://example.com/me.jpg"
+            />
+        );
+    };
 
     return (
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,
-                tabBarStyle: {
-                    backgroundColor: colors.surface,
-                    borderTopLeftRadius: 24,
-                    borderTopRightRadius: 24,
-                    position: 'absolute',
-                    bottom: 0,
-                    height: 80,
-                    borderTopWidth: 0,
-                    ...shadows.card,
-                    elevation: 10,
-                },
-                tabBarActiveTintColor: colors.primary,
-                tabBarInactiveTintColor: colors.textMuted,
-                tabBarShowLabel: true,
-                tabBarLabelStyle: {
-                    fontSize: 10,
-                    paddingBottom: 4,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: '600'
-                },
             }}
+            tabBar={renderCustomTabBar}
         >
-            <Tab.Screen
-                name="Home"
-                component={HomeScreen}
-                options={{
-                    tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-                        <Icon name="home" size={size} color={color} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Games"
-                component={GamesScreen}
-                options={{
-                    tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-                        <Icon name="gamepad" size={size} color={color} />
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Bets"
-                component={BetsScreen}
-                options={{
-                    tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-                        <View>
-                            <Icon name="receipt" size={size} color={color} />
-                            {/* Live dot indicator could go here */}
-                        </View>
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Leagues"
-                component={LeaguesScreen}
-                options={{
-                    tabBarIcon: ({ color, size }: { color: string; size: number }) => (
-                        <Icon name="trophy" size={size} color={color} />
-                    ),
-                }}
-            />
+            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen name="Matches" component={MatchListScreen} />
+            <Tab.Screen name="Wallet" component={WalletScreen} />
+            <Tab.Screen name="Profile" component={ProfileScreen} />
         </Tab.Navigator>
     );
 };

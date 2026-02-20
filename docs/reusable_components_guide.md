@@ -91,6 +91,43 @@ import { AppBackButton } from '../components/shared/AppBackButton';
 
 ---
 
+### 3. `AppBottomNavigation`
+
+A highly stylized, reusable bottom navigation bar featuring a premium gaming aesthetic with a translucent pill container, shadow glows, and smooth active/inactive tab layout.
+
+**Location**: `src/components/shared/AppBottomNavigation.tsx`
+
+**Props**:
+- `activeTab` *('home' | 'matches' | 'wallet' | 'profile')*: The currently selected tab representing the active screen.
+- `onTabPress` *(function)*: Callback triggered when a tab is pressed. Receives the `tab.id`.
+- `profileImageUri` *(string, optional)*: URI string for the user's avatar in the Profile tab. Will fall back to an icon if omitted.
+
+#### Usage:
+
+It is strongly recommended to use this component within your `createBottomTabNavigator` custom `TabBar` prop for React Navigation, or within a full-screen layout wrapper block.
+
+```tsx
+import { AppBottomNavigation } from '../components/shared/AppBottomNavigation';
+import { useState } from 'react';
+
+const MainLayout = () => {
+    const [activeTab, setActiveTab] = useState<'home'|'matches'|'wallet'|'profile'>('home');
+
+    return (
+        <View style={{ flex: 1 }}>
+            {/* Screen Content */}
+            <AppBottomNavigation 
+                activeTab={activeTab} 
+                onTabPress={setActiveTab} 
+                profileImageUri="https://example.com/avatar.jpg" 
+            />
+        </View>
+    );
+};
+```
+
+---
+
 ## Future Components
 
 As we expand the application, any newly introduced core block (e.g. `FloatingActionButton`, `MatchStatisticPill`) that might sit on top of images must adhere to this `variant="default" | "glass"` specification.

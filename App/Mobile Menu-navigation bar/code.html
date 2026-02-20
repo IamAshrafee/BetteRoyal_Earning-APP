@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Premium Gaming Navigation Bar</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D11E48",
+                        "primary-glow": "rgba(209, 30, 72, 0.4)",
+                        "background-light": "#F3F4F6",
+                        "background-dark": "#0B0E14",
+                        "surface-dark": "#151922",
+                        "surface-light": "#FFFFFF",
+                        "icon-inactive": "#6B7280",
+                    },
+                    fontFamily: {
+                        display: ["'Plus Jakarta Sans'", "sans-serif"],
+                    },
+                    borderRadius: {
+                        'pill': '50px',
+                    },
+                    boxShadow: {
+                        'glow': '0 4px 14px 0 rgba(209, 30, 72, 0.39)',
+                        'nav': '0 10px 40px -10px rgba(0,0,0,0.5)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-6">
+<div class="w-full max-w-md relative">
+<nav class="bg-surface-dark dark:bg-surface-dark rounded-pill px-2 py-2 flex items-center justify-between shadow-nav border border-white/5 relative overflow-hidden backdrop-blur-sm">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none rounded-pill"></div>
+<button class="relative group flex items-center gap-2 bg-gradient-to-r from-[#D11E48] to-[#9F1837] text-white px-5 py-3 rounded-pill shadow-glow transition-all duration-300">
+<span class="material-icons-outlined text-[22px]">home</span>
+<span class="text-xs font-semibold tracking-wide">HOME</span>
+</button>
+<button class="flex items-center justify-center p-3 text-icon-inactive hover:text-white transition-colors duration-200">
+<span class="material-icons-outlined text-[24px]">book</span>
+</button>
+<button class="flex items-center justify-center p-3 text-icon-inactive hover:text-white transition-colors duration-200">
+<span class="material-icons-outlined text-[24px]">group_add</span>
+</button>
+<button class="flex items-center justify-center p-3 text-icon-inactive hover:text-white transition-colors duration-200">
+<span class="material-icons-outlined text-[24px]">shopping_cart</span>
+</button>
+<button class="flex items-center justify-center p-1.5 transition-transform duration-200 active:scale-95">
+<div class="h-9 w-9 rounded-full overflow-hidden border-2 border-white/10 hover:border-primary/50 transition-colors">
+<img alt="User Profile" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg5Mys_uu2C5PNdWx2ttzMFfhCsX2jvNHX4e2I4BhnRM1brkNxhvFniUELsTuC51lwCxp00qeFrDACK3oW8AHfVVZhez_VXFJQ55cN1W0JINaANNO-67yD_NmqXrvpO9jFr-unSAOVSZ05ZKqo69ANUsryjKil_6iJ-8PoGwvE4IibrRWf7wjcK-B8kiLq3RfFZI9iX2SzfGtouMhXv60fmbsUnmuVzo2KeGEG3I0MFTZlr0pMEPOAwZryjbYpgkHJHj5P9e4PCeg"/>
+</div>
+</button>
+</nav>
+</div>
+<script>
+        // Simple script to toggle dark mode for demonstration purposes if needed
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+</body></html>
