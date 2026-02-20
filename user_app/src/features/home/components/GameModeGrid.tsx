@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useTheme } from '../../../theme/ThemeContext';
 import { AppText } from '../../../components/shared/AppText';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -42,6 +43,11 @@ const ITEM_WIDTH = (width - (CONTAINER_PADDING * 2) - COLUMN_GAP) / 2;
 
 export const GameModeGrid = () => {
     const { colors, spacing, radius } = useTheme();
+    const navigation = useNavigation<any>();
+
+    const handleModePress = (title: string) => {
+        navigation.navigate('MatchList', { title });
+    };
 
     return (
         <View style={{ marginTop: spacing.lg, paddingHorizontal: spacing.lg }}>
@@ -53,6 +59,8 @@ export const GameModeGrid = () => {
                 {GAME_MODES.map((mode) => (
                     <TouchableOpacity
                         key={mode.id}
+                        onPress={() => handleModePress(mode.title)}
+                        activeOpacity={0.8}
                         style={{
                             width: ITEM_WIDTH,
                             height: 160,

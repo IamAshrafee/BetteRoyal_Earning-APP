@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useTheme } from '../../../theme/ThemeContext';
 import { AppText } from '../../../components/shared/AppText';
 
 const CATEGORIES = [
-    { id: 'all', label: 'ALL GAMES', icon: null },
+    { id: 'all', label: 'All Games', icon: null },
     { id: 'ff', label: 'Free Fire', icon: 'fire' },
     { id: 'pubg', label: 'PUBG', icon: 'gamepad' },
     { id: 'cod', label: 'COD Mobile', icon: 'crosshairs' },
@@ -14,13 +15,19 @@ const CATEGORIES = [
 export const CategoryFilter = () => {
     const { colors, spacing, radius } = useTheme();
     const [activeId, setActiveId] = useState('all');
+    const navigation = useNavigation<any>();
+
+    const handleCategoryPress = (cat: any) => {
+        setActiveId(cat.id);
+        navigation.navigate('MatchList', { title: cat.label });
+    };
 
     return (
         <View style={{ marginTop: spacing.lg }}>
             <View style={{ paddingHorizontal: spacing.lg, marginBottom: spacing.md }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                     <AppText variant="lg" fontWeight="bold">Top Tournaments</AppText>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('MatchList', { title: 'All Tournaments' })}>
                         <AppText variant="xs" color={colors.textMuted}>See All</AppText>
                     </TouchableOpacity>
                 </View>
@@ -36,7 +43,7 @@ export const CategoryFilter = () => {
                     return (
                         <TouchableOpacity
                             key={cat.id}
-                            onPress={() => setActiveId(cat.id)}
+                            onPress={() => handleCategoryPress(cat)}
                             style={{
                                 flexDirection: 'row',
                                 alignItems: 'center',

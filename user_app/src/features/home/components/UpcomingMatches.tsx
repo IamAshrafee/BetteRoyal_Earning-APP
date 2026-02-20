@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useTheme } from '../../../theme/ThemeContext';
 import { AppText } from '../../../components/shared/AppText';
@@ -7,6 +8,7 @@ import { AppCard } from '../../../components/shared/AppCard';
 
 export const UpcomingMatches = () => {
     const { colors, spacing, radius } = useTheme();
+    const navigation = useNavigation<any>();
 
     return (
         <View style={{ marginTop: spacing.lg, paddingHorizontal: spacing.lg, paddingBottom: spacing.lg }}>
@@ -67,16 +69,18 @@ export const UpcomingMatches = () => {
                     </View>
                 </View>
 
-                <TouchableOpacity style={{
-                    backgroundColor: colors.background,
-                    paddingVertical: spacing.md,
-                    borderRadius: radius.md,
-                    borderWidth: 1,
-                    borderColor: colors.primary + '50', // Transparent primary
-                    borderStyle: 'dashed',
-                    alignItems: 'center',
-                    marginTop: spacing.xs,
-                }}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('MatchList', { title: 'Upcoming Matches' })}
+                    style={{
+                        backgroundColor: colors.background,
+                        paddingVertical: spacing.md,
+                        borderRadius: radius.md,
+                        borderWidth: 1,
+                        borderColor: colors.primary + '50', // Transparent primary
+                        borderStyle: 'dashed',
+                        alignItems: 'center',
+                        marginTop: spacing.xs,
+                    }}>
                     <AppText variant="sm" fontWeight="bold" color={colors.primary}>
                         Register Team
                     </AppText>
