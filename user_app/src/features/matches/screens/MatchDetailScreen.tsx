@@ -8,6 +8,7 @@ import { MatchDetailHeader } from '../components/MatchDetailHeader';
 import { MatchStatGrid } from '../components/MatchStatGrid';
 import { PrizePoolList, PrizeRank } from '../components/PrizePoolList';
 import { CollapsibleSection } from '../../../components/shared/CollapsibleSection';
+import { JoinMatchSheet } from '../components/JoinMatchSheet';
 
 // Dummy data fetching based on route params could happen here
 const DUMMY_DETAILS = {
@@ -38,6 +39,8 @@ const DUMMY_DETAILS = {
 export const MatchDetailScreen = () => {
     const { colors, spacing, shadows } = useTheme();
     const route = useRoute();
+    const [isJoinSheetVisible, setIsJoinSheetVisible] = React.useState(false);
+
     // In a real app, use route.params.matchId to fetch data
 
     const { slotsFilled, totalSlots } = DUMMY_DETAILS;
@@ -118,12 +121,22 @@ export const MatchDetailScreen = () => {
                     <TouchableOpacity
                         style={[styles.joinButton, { backgroundColor: colors.primary }]}
                         activeOpacity={0.8}
+                        onPress={() => setIsJoinSheetVisible(true)}
                     >
                         <AppText variant="md" fontWeight="bold" color="#FFFFFF">Join Now</AppText>
                         <MaterialIcons name="login" size={16} color="#FFFFFF" style={{ marginLeft: 8 }} />
                     </TouchableOpacity>
                 </View>
             </View>
+
+            {/* Bottom Sheet Modal */}
+            <JoinMatchSheet
+                visible={isJoinSheetVisible}
+                onClose={() => setIsJoinSheetVisible(false)}
+                matchType="Squad" // Or get from DUMMY_DETAILS
+                entryFee={20}
+                walletBalance={50} // Change to 10 to test insufficient funds
+            />
         </View>
     );
 };
