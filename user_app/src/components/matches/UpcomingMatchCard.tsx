@@ -18,6 +18,7 @@ export interface UpcomingMatchProps {
     roomId?: string;
     roomPassword?: string;
     onCopy?: (text: string) => void;
+    onPress?: () => void;
 }
 
 export const UpcomingMatchCard: React.FC<UpcomingMatchProps> = ({
@@ -31,7 +32,8 @@ export const UpcomingMatchCard: React.FC<UpcomingMatchProps> = ({
     isRoomDetailsAvailable,
     roomId,
     roomPassword,
-    onCopy
+    onCopy,
+    onPress
 }) => {
     const { colors, shadows } = useTheme();
 
@@ -40,7 +42,11 @@ export const UpcomingMatchCard: React.FC<UpcomingMatchProps> = ({
     };
 
     return (
-        <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, ...shadows.soft }]}>
+        <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={onPress}
+            style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, ...shadows.soft }]}
+        >
             {/* Background Decoration */}
             <View style={[styles.decorationBlur, { backgroundColor: colors.primary + '1A' }]} />
 
@@ -128,7 +134,7 @@ export const UpcomingMatchCard: React.FC<UpcomingMatchProps> = ({
                     </Animated.View>
                 )}
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 

@@ -9,12 +9,13 @@ export interface HistoryMatchProps {
     id: string;
     title: string;
     dateTime: string;
-    status: 'COMPLETED' | 'CANCELLED';
+    status: 'COMPLETED' | 'CANCELLED' | 'CALCULATING';
     result: 'WIN' | 'LOSS';
     rank: string; // e.g. '#1' or '#45'
     kills: number;
     totalWon: string; // e.g. '৳350' or '৳0'
     onViewLeaderboard?: () => void;
+    onPress?: () => void;
 }
 
 export const HistoryMatchCard: React.FC<HistoryMatchProps> = ({
@@ -25,7 +26,8 @@ export const HistoryMatchCard: React.FC<HistoryMatchProps> = ({
     rank,
     kills,
     totalWon,
-    onViewLeaderboard
+    onViewLeaderboard,
+    onPress
 }) => {
     const { colors, spacing, shadows } = useTheme();
 
@@ -43,7 +45,11 @@ export const HistoryMatchCard: React.FC<HistoryMatchProps> = ({
     const dividerColor = isWin ? (colors.warning + '30') : colors.border;
 
     return (
-        <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, ...shadows.soft }]}>
+        <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={onPress}
+            style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, ...shadows.soft }]}
+        >
             {/* Header */}
             <View style={[styles.header, { borderBottomColor: colors.border }]}>
                 <View style={{ flex: 1, paddingRight: 10 }}>
@@ -99,7 +105,7 @@ export const HistoryMatchCard: React.FC<HistoryMatchProps> = ({
                 </AppText>
                 <MaterialIcons name="chevron-right" size={16} color={colors.textMuted} style={{ marginTop: 1 }} />
             </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
     );
 };
 

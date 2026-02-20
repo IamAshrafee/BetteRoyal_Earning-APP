@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Match Details: Static Info Tab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FF4757", // Bright red-pink from screenshot inspiration
+                        "background-light": "#F3F4F6", // Light gray background
+                        "background-dark": "#111827", // Dark gray background
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F3F4F6",
+                        "text-muted-light": "#6B7280",
+                        "text-muted-dark": "#9CA3AF",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                        "xl": "16px",
+                        "2xl": "20px",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;-ms-overflow-style: none;scrollbar-width: none;}
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen flex justify-center">
+<div class="w-full max-w-md bg-white dark:bg-black min-h-screen shadow-2xl relative flex flex-col">
+<header class="sticky top-0 z-10 bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 px-4 py-3 flex items-center justify-between">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-icons text-gray-800 dark:text-white">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-gray-900 dark:text-white">Classic Solo #105</h1>
+<div class="w-10"></div> 
+</header>
+<div class="px-4 pt-4 pb-2">
+<div class="flex bg-gray-100 dark:bg-gray-900 rounded-xl p-1">
+<button class="flex-1 py-2.5 text-sm font-medium text-gray-500 dark:text-gray-400 rounded-lg transition-all">
+                    Live Action
+                </button>
+<button class="flex-1 py-2.5 text-sm font-bold text-white bg-primary shadow-sm rounded-lg transition-all">
+                    Match Info
+                </button>
+</div>
+</div>
+<main class="flex-1 overflow-y-auto px-4 py-4 space-y-5 pb-24">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-800 flex items-center justify-between">
+<div>
+<p class="text-xs text-text-muted-light dark:text-text-muted-dark font-medium uppercase tracking-wider mb-1">My Registration</p>
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary text-sm">person</span>
+<p class="font-bold text-lg text-gray-900 dark:text-white">Ninja69</p>
+</div>
+</div>
+<div class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-icons text-xs">check_circle</span>
+                    Confirmed
+                </div>
+</div>
+<div>
+<h2 class="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+<span class="material-icons text-primary text-sm">info</span>
+                    Details
+                </h2>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-3 border border-gray-100 dark:border-gray-800">
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Schedule</p>
+<p class="font-semibold text-sm dark:text-gray-200">Today, 8:00 PM</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-3 border border-gray-100 dark:border-gray-800">
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Map</p>
+<p class="font-semibold text-sm dark:text-gray-200">Bermuda</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-3 border border-gray-100 dark:border-gray-800">
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Type</p>
+<p class="font-semibold text-sm dark:text-gray-200">Solo</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-3 border border-gray-100 dark:border-gray-800">
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Entry Fee</p>
+<div class="flex items-center gap-1">
+<span class="material-icons text-yellow-500 text-xs">monetization_on</span>
+<p class="font-semibold text-sm dark:text-gray-200">50 Coins</p>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-3 border border-gray-100 dark:border-gray-800">
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Win Prize</p>
+<div class="flex items-center gap-1">
+<span class="material-icons text-green-500 text-xs">emoji_events</span>
+<p class="font-semibold text-sm dark:text-gray-200">$200 Pool</p>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-3 border border-gray-100 dark:border-gray-800">
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Per Kill</p>
+<div class="flex items-center gap-1">
+<span class="material-icons text-red-500 text-xs">local_fire_department</span>
+<p class="font-semibold text-sm dark:text-gray-200">10 Coins</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+<span class="material-icons text-yellow-500 text-sm">military_tech</span>
+                        Prize Distribution
+                    </h2>
+<span class="text-xs text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Top 3 Paid</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between pb-3 border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center text-yellow-600 dark:text-yellow-400 font-bold text-sm">
+                                1
+                            </div>
+<span class="font-medium text-sm text-gray-700 dark:text-gray-300">Winner</span>
+</div>
+<span class="font-bold text-sm text-gray-900 dark:text-white">$100</span>
+</div>
+<div class="flex items-center justify-between pb-3 border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 font-bold text-sm">
+                                2
+                            </div>
+<span class="font-medium text-sm text-gray-700 dark:text-gray-300">Runner Up</span>
+</div>
+<span class="font-bold text-sm text-gray-900 dark:text-white">$60</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 font-bold text-sm">
+                                3
+                            </div>
+<span class="font-medium text-sm text-gray-700 dark:text-gray-300">3rd Place</span>
+</div>
+<span class="font-bold text-sm text-gray-900 dark:text-white">$40</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+<details class="group">
+<summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4">
+<div class="flex items-center gap-2">
+<span class="material-icons text-blue-500 text-sm">gavel</span>
+<span class="text-base font-bold text-gray-900 dark:text-white">Match Rules</span>
+</div>
+<span class="transition group-open:rotate-180">
+<span class="material-icons text-gray-400">expand_more</span>
+</span>
+</summary>
+<div class="text-gray-600 dark:text-gray-400 text-sm px-4 pb-4 space-y-2 border-t border-gray-100 dark:border-gray-800 pt-3">
+<div class="flex items-start gap-2">
+<span class="text-primary text-xs mt-1">•</span>
+<p>Teaming with other players is strictly prohibited and will result in a ban.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-primary text-xs mt-1">•</span>
+<p>Emulators are not allowed. Mobile devices only.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-primary text-xs mt-1">•</span>
+<p>Room ID and Password will be shared 15 minutes before match start.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="text-primary text-xs mt-1">•</span>
+<p>Take screenshot of your result for prize claims.</p>
+</div>
+</div>
+</details>
+</div>
+</main>
+<div class="sticky bottom-0 bg-white dark:bg-black border-t border-gray-100 dark:border-gray-800 p-4 pb-8 backdrop-blur-lg bg-opacity-95 dark:bg-opacity-95">
+<button class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-4 px-6 rounded-2xl shadow-lg shadow-red-200 dark:shadow-red-900/20 flex items-center justify-center gap-2 transform active:scale-95 transition-all">
+<span class="material-icons">share</span>
+                Share Match Details
+            </button>
+</div>
+</div>
+
+</body></html>

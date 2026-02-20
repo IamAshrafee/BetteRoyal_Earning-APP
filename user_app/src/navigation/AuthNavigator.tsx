@@ -5,6 +5,7 @@ import { RegistrationScreen } from '../features/auth/screens/RegistrationScreen'
 import { BottomTabNavigator } from '../features/navigation/BottomTabNavigator';
 import { MatchListScreen } from '../features/matches/screens/MatchListScreen';
 import { MatchDetailScreen } from '../features/matches/screens/MatchDetailScreen';
+import { MyMatchDetailScreen } from '../features/matches/screens/MyMatchDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ export const AuthNavigator = () => {
             <Stack.Screen name="Main" component={BottomTabNavigator} />
             <Stack.Screen name="MatchList" component={MatchListScreen} />
             <Stack.Screen name="MatchDetail" component={MatchDetailScreen} />
+            <Stack.Screen name="MyMatchDetail" component={MyMatchDetailScreen} />
         </Stack.Navigator>
     );
 };

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTheme } from '../../theme/ThemeContext';
 import { AppText } from '../../components/shared/AppText';
 import { MatchModeToggle, MatchMode } from '../../components/matches/MatchModeToggle';
@@ -60,11 +62,22 @@ const MOCK_HISTORY: HistoryMatchProps[] = [
         rank: '#45',
         kills: 0,
         totalWon: '৳0',
+    },
+    {
+        id: 'h3',
+        title: 'Kalahari Pro Scrim #77',
+        dateTime: 'May 25, 2023 • 9:00 PM',
+        status: 'CALCULATING',
+        result: 'LOSS',
+        rank: '-',
+        kills: 0,
+        totalWon: '৳0',
     }
 ];
 
 export const MyMatchesScreen = () => {
     const { colors, spacing, shadows } = useTheme();
+    const navigation = useNavigation<NativeStackNavigationProp<any>>();
     const [mode, setMode] = useState<MatchMode>('upcoming');
     const [selectedCategory, setSelectedCategory] = useState<MatchCategory>('All Games');
     const [toastVisible, setToastVisible] = useState(false);
@@ -112,7 +125,7 @@ export const MyMatchesScreen = () => {
                         >
                             {MOCK_UPCOMING.length > 0 ? (
                                 MOCK_UPCOMING.map(match => (
-                                    <UpcomingMatchCard key={match.id} {...match} onCopy={handleCopy} />
+                                    <UpcomingMatchCard key={match.id} {...match} onCopy={handleCopy} onPress={() => navigation.navigate('MyMatchDetail', { status: 'PENDING', matchTitle: match.title })} />
                                 ))
                             ) : (
                                 <View style={styles.emptyState}>
@@ -144,7 +157,7 @@ export const MyMatchesScreen = () => {
                             </View>
                             {MOCK_HISTORY.length > 0 ? (
                                 MOCK_HISTORY.map(match => (
-                                    <HistoryMatchCard key={match.id} {...match} />
+                                    <HistoryMatchCard key={match.id} {...match} onPress={() => navigation.navigate('MyMatchDetail', { status: match.status === 'COMPLETED' ? 'COMPLETED' : 'CALCULATING', matchTitle: match.title })} />
                                 ))
                             ) : (
                                 <View style={styles.emptyState}>
