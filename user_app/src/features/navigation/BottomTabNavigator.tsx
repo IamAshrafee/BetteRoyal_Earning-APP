@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator, BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { View } from 'react-native';
 import { HomeScreen } from '../home/screens/HomeScreen';
-import { MatchListScreen } from '../matches/screens/MatchListScreen';
+import { MyMatchesScreen } from '../../screens/matches/MyMatchesScreen';
 import { AppBottomNavigation, TabType } from '../../components/shared/AppBottomNavigation';
 
 const Tab = createBottomTabNavigator();
@@ -47,7 +47,7 @@ export const BottomTabNavigator = () => {
             tabBar={renderCustomTabBar}
         >
             <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Matches" component={MatchListScreen} />
+            <Tab.Screen name="Matches" component={MyMatchesScreen} />
             <Tab.Screen name="Wallet" component={WalletScreen} />
             <Tab.Screen name="Profile" component={ProfileScreen} />
         </Tab.Navigator>
